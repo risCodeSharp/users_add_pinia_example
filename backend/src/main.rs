@@ -46,7 +46,6 @@ async fn create_user(
 }
 
 async fn get_users(State(state): State<AppState>) -> impl IntoResponse {
-    let _ = tokio::time::sleep(std::time::Duration::from_secs(2)).await;
     let users = state.users.read().await;
 
     Json(users.clone())
